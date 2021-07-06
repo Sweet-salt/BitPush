@@ -1,0 +1,142 @@
+body{
+    width: auto;
+    max-height: 2000px;
+    background-color: #1C1C1C;
+    color: blueviolet;
+    padding-top: 10px;
+    text-align: center;
+}
+h2{
+    font-size: 20px;
+}
+.majorcoins{
+    display: flex;
+    margin-left: 40px;
+}
+.btc{
+    display: flex;
+    width: 20%;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    border: 1px solid #424242;
+    text-align: center;
+    margin-right: 10px;
+}
+#eth{
+    display: flex;
+    width: 20%;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    border: 1px solid #424242;
+    text-align: center;
+    margin-right: 10px;
+}
+#xrp{
+    display: flex;
+    width: 20%;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    border: 1px solid #424242;
+    text-align: center;
+    margin-right: 10px;
+}
+#neo{
+    display: flex;
+    width: 20%;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    border: 1px solid #424242;
+    text-align: center;
+    margin-right: 10px;
+}
+#ada{
+    display: flex;
+    width: 20%;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    border: 1px solid #424242;
+    text-align: center;
+    margin-right: 40px;
+
+}
+#line1{
+    margin: 40px;
+    
+}
+
+.currentprice{
+    width: 45%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    padding: 10px;
+    border: 1px solid #424242;
+    display: inline-block;
+    float: left;
+}
+
+#adbtn{
+    background-color: #2E2E2E;
+    color: white;
+}
+.traderposition{
+    width: 45%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: #2E2E2E;
+    border: 1px solid #424242;
+    display: inline-block;
+    float: right;
+    
+}
+.traderposition .toptrader{
+    float: left;
+    margin-left: 20px;
+    
+}
+@media(max-width:500px){
+    .title{
+        float: left;
+        width: auto;
+        margin-left: 40px;
+    }
+    .majorcoins{
+        display: grid;
+    }
+    #eth{
+        display: none;
+    }
+    #xrp{
+        display: none;
+    }
+    #neo{
+        display: none;
+    }
+    #ada{
+        display: none;
+    }
+    #line1{
+        display: grid;
+        float: left;
+        width: 100%;
+        align-items: center;
+    }
+    .currentprice{
+        width: 80%;
+    }
+    .traderposition{
+        width: 80%;
+        margin-right: 40px;
+        margin-top: 20px;
+    }
+}
