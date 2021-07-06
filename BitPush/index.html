@@ -9,45 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        var usd_cnt = 0;
-        var usd = 0;
-        var alert_array = new Array();
-
-        var upbit_btc2 = 0; var upbit_btc1 = 0; var upbit_btc0 = 0;
-        var upbit_eth2 = 0; var upbit_eth1 = 0; var upbit_eth0 = 0;
-        var upbit_xrp2 = 0; var upbit_xrp1 = 0; var upbit_xrp0 = 0;
-
-        var coinone_btc2 = 0; var coinone_btc1 = 0; var coinone_btc0 = 0;
-        var coinone_eth2 = 0; var coinone_eth1 = 0; var coinone_eth0 = 0;
-        var coinone_xrp2 = 0; var coinone_xrp1 = 0; var coinone_xrp0 = 0;
-
-        var bithumb_btc2 = 0; var bithumb_btc1 = 0; var bithumb_btc0 = 0;
-        var bithumb_eth2 = 0; var bithumb_eth1 = 0; var bithumb_eth0 = 0;
-        var bithumb_xrp2 = 0; var bithumb_xrp1 = 0; var bithumb_xrp0 = 0;
-
-        //천단위 콤마 함수
-        function numberCommas(x) {
-            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        }
-
-        //숫자 외 문자열 제거 함수
-        function numberDeleteChar(x){
-            return x.toString().replace(/[^0-9]+/g, '');
-        }
-
-        function usdkrw() {
-            $.ajax({
-                type: 'GET',
-                async: false,
-                url: 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%3D%22USDKRW%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys',
-                
-            })
-        }
-        //달러 환율 함수(ajax동기식)
-    </script>
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6052e5061fc8749e"></script>
-
+    
 </head>
 <body>
     <header>
@@ -70,15 +32,17 @@
                 <div class="notbtc" id="ada">
                     <h2>Ada : </h2>
                 </div>
-
         </div>
     </header>
          <div class="line1" id="line1">
             <div class="currentprice">
-            <h2>현재 코인 가격</h2>
-                <div class="choice">
+            <h2>코인을 선택하세요 (최대 5개)</h2>
+                <div class="adstart" >
                     <h2>광고재생후 원하는 코인을 클릭하시면 매시간 선택하신 코인의 현황을 알려드립니다.</h2>
-                    <button id="adbtn">광고재생</button>
+                    <button id="adbtn" onclick="start()">광고재생</button>
+                </div>
+                <div class="coins" id="coins" hidden>
+                    <h2>coins</h2>
                 </div>
             </div>
             <div class="traderposition">
@@ -102,6 +66,58 @@
                 </div>
             </div>
         </div>
+    <article>
+        <div class="mount">
+            <h2>현재 거래량 TOP 10</h2>
+        </div>
+        <div class="upprice">
+            <h2>현재 가격 상승률 TOP 10</h2>
+        </div>
+    </article>
 
 </body>
+
+<script>
+    var usd_cnt = 0;
+    var usd = 0;
+    var alert_array = new Array();
+
+    var upbit_btc2 = 0; var upbit_btc1 = 0; var upbit_btc0 = 0;
+    var upbit_eth2 = 0; var upbit_eth1 = 0; var upbit_eth0 = 0;
+    var upbit_xrp2 = 0; var upbit_xrp1 = 0; var upbit_xrp0 = 0;
+
+    var coinone_btc2 = 0; var coinone_btc1 = 0; var coinone_btc0 = 0;
+    var coinone_eth2 = 0; var coinone_eth1 = 0; var coinone_eth0 = 0;
+    var coinone_xrp2 = 0; var coinone_xrp1 = 0; var coinone_xrp0 = 0;
+
+    var bithumb_btc2 = 0; var bithumb_btc1 = 0; var bithumb_btc0 = 0;
+    var bithumb_eth2 = 0; var bithumb_eth1 = 0; var bithumb_eth0 = 0;
+    var bithumb_xrp2 = 0; var bithumb_xrp1 = 0; var bithumb_xrp0 = 0;
+
+    //천단위 콤마 함수
+    function numberCommas(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    //숫자 외 문자열 제거 함수
+    function numberDeleteChar(x){
+        return x.toString().replace(/[^0-9]+/g, '');
+    }
+
+    function usdkrw() {
+        $.ajax({
+            type: 'GET',
+            async: false,
+            url: 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.xchange%20where%20pair%3D%22USDKRW%22&format=json&diagnostics=true&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys',
+            
+        })
+    }
+    
+    function start() {
+        $("#adbtn").hide();
+        $(".adstart").hide();
+        $("#coins").show();
+        next();
+    }
+</script>
 </html>
